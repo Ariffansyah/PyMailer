@@ -7,14 +7,10 @@
 
 ## Features
 
-- **Modern, Responsive Interface:** Uses CustomTkinter with a dark theme and accent colors.
 - **Send Emails:** Easily send to one or multiple recipients (comma-separated).
 - **HTML & Plain Text Supported:** Auto-detects HTML and sends accordingly.
 - **Mailtrap SMTP Integration:** Secure, reliable testing with Mailtrap's API token.
 - **Save & Load Settings:** Email and Mailtrap token are stored locally.
-- **Large Editable Body:** Compose and review emails comfortably.
-- **Keyboard Shortcuts:** `Ctrl+A`/`Cmd+A` to select all in any field.
-- **Resizable Window:** Maximize, minimize, or resize as you wish.
 
 ---
 
@@ -57,6 +53,44 @@
 
 ---
 
+## Build Tutorial (Create Executable)
+
+If you want to distribute PyMailer as a standalone app (so users don’t need to install Python):
+
+### 1. Install PyInstaller
+
+```sh
+pip install pyinstaller
+```
+
+### 2. Build the Executable
+
+Run this command in your project directory:
+```sh
+pyinstaller --onefile --windowed main.py
+```
+- `--onefile` creates a single executable file.
+- `--windowed` (important for GUI apps) hides the command prompt window (Windows/macOS).
+
+### 3. Find Your Executable
+
+- The executable will be created in the `dist` folder inside your project directory.
+- You can rename and distribute this file to others.
+
+### 4. (Optional) Add an Icon
+
+- Place your icon file (e.g., `icon.ico`) in your project folder.
+- Add `--icon=icon.ico` to the PyInstaller command:
+  ```
+  pyinstaller --onefile --windowed --icon=icon.ico main.py
+  ```
+
+### 5. (Optional) Clean Up
+
+After building, you can remove the extra `build/` and `__pycache__/` folders if you wish.
+
+---
+
 ## Notes
 
 - **Mailtrap only delivers to its sandbox inboxes by default.** Use for testing, not for actual delivery.
@@ -80,5 +114,3 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 - [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter)
 - [Mailtrap](https://mailtrap.io/)
-
----
